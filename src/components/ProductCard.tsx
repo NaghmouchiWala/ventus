@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Product } from "@/lib/products";
+import { PlantAccent } from "./PlantAccent";
 
 export function ProductCard({ product, index }: { product: Product; index: number }) {
   const [open, setOpen] = useState(false);
@@ -25,20 +26,29 @@ export function ProductCard({ product, index }: { product: Product; index: numbe
           aria-hidden
           className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(45,212,191,0.12),transparent_70%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100"
         />
+
+        <PlantAccent className="absolute -bottom-6 -left-6 h-40 w-40 opacity-30 blur-[2px] transition-opacity duration-700 group-hover:opacity-50 sm:h-48 sm:w-48" />
+
         <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative h-full w-full transition-transform duration-500 group-hover:scale-[1.04]"
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="relative z-10 h-full w-full"
         >
-          <Image
-            src={product.image.src}
-            alt={`${product.model} — ${product.name}`}
-            fill
-            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
-            className="object-contain p-6 drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
-          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="relative h-full w-full transition-transform duration-500 group-hover:scale-[1.04]"
+          >
+            <Image
+              src={product.image.src}
+              alt={`${product.model} — ${product.name}`}
+              fill
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
+              className="object-contain p-6 drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
+            />
+          </motion.div>
         </motion.div>
       </div>
 

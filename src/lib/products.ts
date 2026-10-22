@@ -129,7 +129,7 @@ export const PRODUCTS: Product[] = [
     ],
     colors: ["#0a0a0a", "#f5f5f5", "#2dd4bf", "#8b5e3c"],
     dimension: "Ø 132 cm",
-    image: { src: "/products/c1.webp", width: 1024, height: 1024 },
+    image: { src: "/products/c1.webp", width: 464, height: 407 },
   },
   {
     id: "c2",
@@ -158,7 +158,7 @@ export const PRODUCTS: Product[] = [
     ],
     colors: ["#0a0a0a", "#f5f5f5", "#2dd4bf", "#8b5e3c"],
     dimension: "Ø 132 cm",
-    image: { src: "/products/c2.webp", width: 1024, height: 1024 },
+    image: { src: "/products/c2.webp", width: 485, height: 228 },
   },
   {
     id: "b1",
