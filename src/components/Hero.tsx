@@ -25,16 +25,26 @@ export function Hero() {
       id="top"
       className="noise relative min-h-screen flex flex-col items-center justify-center overflow-hidden border-b border-white/10"
     >
-      {/* background grid */}
+      {/* concentric airflow rings */}
       <div
         aria-hidden
-        className="absolute inset-0 opacity-[0.07]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
-      />
+        className="absolute inset-0 flex items-center justify-center"
+      >
+        {[0, 1, 2, 3].map((i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: [0, 0.14, 0.14, 0], scale: [0.85, 1.6] }}
+            transition={{
+              duration: 7,
+              delay: i * 1.75,
+              repeat: Infinity,
+              ease: "easeOut",
+            }}
+            className="absolute aspect-square w-[70vmin] rounded-full border border-teal/40"
+          />
+        ))}
+      </div>
 
       <WindLines className="absolute inset-0 overflow-hidden" />
 
