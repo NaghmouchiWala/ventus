@@ -1,0 +1,101 @@
+@import "tailwindcss";
+@import "./fonts.css";
+
+:root {
+  --background: #050505;
+  --surface: #0c0d0d;
+  --foreground: #f5f5f5;
+  --muted: #8a8a8a;
+  --line: rgba(255, 255, 255, 0.1);
+  --teal: #2dd4bf;
+  --teal-dim: #1a7f74;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-teal: var(--teal);
+  --color-teal-dim: var(--teal-dim);
+  --font-display: "Orbitron", sans-serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--teal);
+  color: #000000;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* thin scrollbar, monochrome */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* chamfered-corner clip paths, echoing the Ventus wordmark terminals */
+.clip-chamfer {
+  clip-path: polygon(
+    12px 0%,
+    100% 0%,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    0% 100%,
+    0% 12px
+  );
+}
+
+.clip-chamfer-sm {
+  clip-path: polygon(
+    8px 0%,
+    100% 0%,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0% 100%,
+    0% 8px
+  );
+}
+
+.text-glow-teal {
+  text-shadow: 0 0 24px rgba(45, 212, 191, 0.4);
+}
+
+.border-glow-teal {
+  box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.25), 0 0 32px -8px rgba(45, 212, 191, 0.3);
+}
+
+.noise {
+  position: relative;
+}
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

@@ -1,0 +1,192 @@
+export type ProductSpec = { label: string; value: string };
+
+export type Product = {
+  id: string;
+  model: string;
+  name: string;
+  tagline: string;
+  category: "Sol" | "Table" | "Mural" | "Plafonnier" | "Sans pales";
+  highlights: string[];
+  specs: ProductSpec[];
+  colors: string[];
+  dimension: string;
+};
+
+export const PRODUCTS: Product[] = [
+  {
+    id: "s1",
+    model: "VENTUS S1",
+    name: "Ventilateur sur pied",
+    tagline: "Puissant et silencieux, hauteur réglable",
+    category: "Sol",
+    highlights: [
+      "Puissant et silencieux",
+      "Télécommande",
+      "Hauteur réglable",
+      "Oscillation 80°",
+      "3 vitesses + mode nuit",
+      "Minuterie 1–8 h",
+    ],
+    specs: [
+      { label: "Diamètre", value: "40 cm" },
+      { label: "Puissance", value: "50 W" },
+      { label: "Débit d'air", value: "4 500 m³/h" },
+      { label: "Hauteur", value: "110 – 135 cm" },
+      { label: "Oscillation", value: "80°" },
+      { label: "Vitesses", value: "3 + mode nuit" },
+      { label: "Télécommande", value: "Oui" },
+      { label: "Minuterie", value: "1 – 8 h" },
+      { label: "Niveau sonore", value: "≤ 45 dB" },
+    ],
+    colors: ["#0a0a0a", "#f5f5f5", "#2dd4bf"],
+    dimension: "Ø 40 cm",
+  },
+  {
+    id: "t1",
+    model: "VENTUS T1",
+    name: "Ventilateur de table",
+    tagline: "Design compact pour bureau et chevet",
+    category: "Table",
+    highlights: [
+      "Design compact",
+      "Télécommande",
+      "Oscillation 70°",
+      "3 vitesses + mode nuit",
+      "Minuterie 1–7 h",
+      "Fonction silencieuse",
+    ],
+    specs: [
+      { label: "Diamètre", value: "30 cm" },
+      { label: "Puissance", value: "35 W" },
+      { label: "Débit d'air", value: "2 800 m³/h" },
+      { label: "Hauteur", value: "55 cm" },
+      { label: "Oscillation", value: "70°" },
+      { label: "Vitesses", value: "3 + mode nuit" },
+      { label: "Télécommande", value: "Oui" },
+      { label: "Minuterie", value: "1 – 7 h" },
+      { label: "Niveau sonore", value: "≤ 45 dB" },
+    ],
+    colors: ["#0a0a0a", "#f5f5f5", "#2dd4bf"],
+    dimension: "Ø 30 cm",
+  },
+  {
+    id: "w1",
+    model: "VENTUS W1",
+    name: "Ventilateur mural",
+    tagline: "Gain de place, inclinaison réglable",
+    category: "Mural",
+    highlights: [
+      "Gain de place",
+      "Télécommande",
+      "Oscillation 90°",
+      "Inclinaison réglable",
+      "3 vitesses + mode nuit",
+      "Fonction silencieuse",
+    ],
+    specs: [
+      { label: "Diamètre", value: "40 cm" },
+      { label: "Puissance", value: "50 W" },
+      { label: "Débit d'air", value: "4 200 m³/h" },
+      { label: "Profondeur", value: "28 cm" },
+      { label: "Oscillation", value: "90°" },
+      { label: "Inclinaison", value: "0° – 30°" },
+      { label: "Vitesses", value: "3 + mode nuit" },
+      { label: "Télécommande", value: "Oui" },
+      { label: "Minuterie", value: "1 – 7 h" },
+      { label: "Niveau sonore", value: "≤ 45 dB" },
+    ],
+    colors: ["#0a0a0a", "#f5f5f5", "#2dd4bf"],
+    dimension: "Ø 40 cm",
+  },
+  {
+    id: "c1",
+    model: "VENTUS C1",
+    name: "Ventilateur plafonnier avec lampe LED",
+    tagline: "Ventilation puissante, éclairage 3 couleurs",
+    category: "Plafonnier",
+    highlights: [
+      "Ventilation puissante",
+      "Lampe LED 3 couleurs (3000K / 4000K / 6500K)",
+      "Télécommande",
+      "6 vitesses",
+      "Mode été / hiver",
+      "Minuterie 1–8 h",
+    ],
+    specs: [
+      { label: "Diamètre", value: "132 cm" },
+      { label: "Puissance (moteur)", value: "40 W" },
+      { label: "Lampe LED", value: "24 W (3 couleurs)" },
+      { label: "Débit d'air", value: "6 000 m³/h" },
+      { label: "Vitesses", value: "6" },
+      { label: "Mode été / hiver", value: "Oui" },
+      { label: "Télécommande", value: "Oui" },
+      { label: "Minuterie", value: "1 – 8 h" },
+      { label: "Niveau sonore", value: "≤ 35 dB" },
+    ],
+    colors: ["#0a0a0a", "#f5f5f5", "#2dd4bf", "#8b5e3c"],
+    dimension: "Ø 132 cm",
+  },
+  {
+    id: "c2",
+    model: "VENTUS C2",
+    name: "Ventilateur plafonnier design",
+    tagline: "Design moderne, lampe LED intégrée",
+    category: "Plafonnier",
+    highlights: [
+      "Design moderne",
+      "Lampe LED intégrée",
+      "Télécommande",
+      "6 vitesses",
+      "Mode été / hiver",
+      "Fonction silencieuse",
+    ],
+    specs: [
+      { label: "Diamètre", value: "132 cm" },
+      { label: "Puissance", value: "35 W" },
+      { label: "Lampe LED", value: "18 W (3 couleurs)" },
+      { label: "Débit d'air", value: "5 800 m³/h" },
+      { label: "Vitesses", value: "6" },
+      { label: "Mode été / hiver", value: "Oui" },
+      { label: "Télécommande", value: "Oui" },
+      { label: "Minuterie", value: "1 – 8 h" },
+      { label: "Niveau sonore", value: "≤ 32 dB" },
+    ],
+    colors: ["#0a0a0a", "#f5f5f5", "#2dd4bf", "#8b5e3c"],
+    dimension: "Ø 132 cm",
+  },
+  {
+    id: "b1",
+    model: "VENTUS B1",
+    name: "Ventilateur sans pales",
+    tagline: "Flux d'air doux et puissant, design sécurisé",
+    category: "Sans pales",
+    highlights: [
+      "Flux d'air doux et puissant",
+      "Design sans pales sécurisé",
+      "Télécommande",
+      "9 vitesses",
+      "Mode nuit",
+      "Filtres lavables",
+    ],
+    specs: [
+      { label: "Hauteur", value: "105 cm" },
+      { label: "Puissance", value: "45 W" },
+      { label: "Débit d'air", value: "3 500 m³/h" },
+      { label: "Oscillation", value: "80°" },
+      { label: "Vitesses", value: "9" },
+      { label: "Télécommande", value: "Oui" },
+      { label: "Minuterie", value: "1 – 8 h" },
+      { label: "Filtres lavables", value: "Oui" },
+      { label: "Niveau sonore", value: "≤ 40 dB" },
+    ],
+    colors: ["#0a0a0a", "#f5f5f5", "#2dd4bf"],
+    dimension: "Ø 23 cm",
+  },
+];
+
+export const BRAND_PILLARS = [
+  { label: "Fraîcheur Puissante" },
+  { label: "Confort Silencieux" },
+  { label: "Design Moderne" },
+  { label: "Télécommande" },
+];
