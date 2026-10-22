@@ -6,10 +6,10 @@ import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 
 const LINKS = [
-  { label: "Technologie", href: "#technology" },
-  { label: "Collection", href: "#collection" },
-  { label: "Chiffres", href: "#specs" },
-  { label: "Contact", href: "#contact" },
+  { label: "Technologie", href: "/#technology" },
+  { label: "Collection", href: "/#collection" },
+  { label: "Chiffres", href: "/#specs" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Nav() {
@@ -43,7 +43,7 @@ export function Nav() {
         }`}
       >
         <nav className="mx-auto max-w-7xl px-6 sm:px-10 h-20 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+          <a href="/#top" className="flex items-center gap-3" onClick={() => setOpen(false)}>
             <Logo className="text-lg sm:text-xl" />
           </a>
 
@@ -64,7 +64,7 @@ export function Nav() {
           <div className="hidden sm:flex items-center gap-4">
             <ThemeToggle />
             <a
-              href="#contact"
+              href="/#contact"
               className="inline-flex items-center border border-teal/40 px-5 py-2.5 text-xs tracking-[0.2em] text-teal clip-chamfer-sm transition-colors hover:bg-teal hover:text-invert"
             >
               PRÉ-COMMANDER
@@ -117,7 +117,7 @@ export function Nav() {
                 </motion.a>
               ))}
               <motion.a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setOpen(false)}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}

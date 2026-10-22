@@ -96,6 +96,15 @@ export function CTA() {
             </motion.p>
           )}
         </Reveal>
+
+        <Reveal delay={0.25}>
+          <p className="mt-8 text-xs text-foreground/40">
+            Une question plutôt qu&rsquo;une précommande ?{" "}
+            <a href="/contact" className="text-teal underline underline-offset-4 hover:text-foreground transition-colors">
+              Contactez-nous
+            </a>
+          </p>
+        </Reveal>
       </div>
     </section>
   );
