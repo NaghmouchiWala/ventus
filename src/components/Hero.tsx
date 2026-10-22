@@ -80,6 +80,43 @@ export function Hero() {
           L&rsquo;AIR D&rsquo;UN MEILLEUR QUOTIDIEN
         </motion.p>
 
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            borderColor: [
+              "rgba(255,255,255,0.15)",
+              "rgba(45,212,191,0.4)",
+              "rgba(255,255,255,0.15)",
+            ],
+          }}
+          transition={{
+            opacity: { delay: 0.5, duration: 0.6 },
+            y: { delay: 0.5, duration: 0.6 },
+            borderColor: {
+              delay: 1.2,
+              duration: 3.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            },
+          }}
+          className="mb-10 inline-flex items-center gap-2.5 border px-4 py-1.5 clip-chamfer-sm"
+        >
+          <motion.span
+            animate={{ opacity: [1, 0.5, 1] }}
+            transition={{ delay: 1.2, duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+            className="flex h-2.5 w-4 overflow-hidden rounded-[1px]"
+          >
+            <span className="h-full w-1/3 bg-[#0055A4]" />
+            <span className="h-full w-1/3 bg-white" />
+            <span className="h-full w-1/3 bg-[#EF4135]" />
+          </motion.span>
+          <span className="text-[10px] tracking-[0.25em] text-white/60">
+            DESIGNED IN FRANCE
+          </span>
+        </motion.div>
+
         <h1 className="font-display font-semibold leading-none text-[13.5vw] sm:text-[11vw] md:text-[9rem] lg:text-[10.5rem] tracking-[0.02em] sm:tracking-[0.05em] flex overflow-hidden">
           {WORD.split("").map((char, i) => (
             <motion.span
