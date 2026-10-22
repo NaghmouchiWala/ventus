@@ -5,14 +5,28 @@ import { motion } from "framer-motion";
 import { Reveal } from "./Reveal";
 import { WindLines } from "./WindLines";
 
+type Status = "idle" | "loading" | "success" | "error";
+
 export function CTA() {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email) return;
-    setSubmitted(true);
+    if (!email || status === "loading") return;
+
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/preorder", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error("request failed");
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -41,7 +55,7 @@ export function CTA() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          {submitted ? (
+          {status === "success" ? (
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -60,15 +74,26 @@ export function CTA() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="votre@email.com"
-                className="flex-1 bg-transparent border border-white/25 px-5 py-3.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-teal"
+                disabled={status === "loading"}
+                className="flex-1 bg-transparent border border-white/25 px-5 py-3.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-teal disabled:opacity-50"
               />
               <button
                 type="submit"
-                className="bg-teal text-black px-8 py-3.5 text-xs tracking-[0.25em] clip-chamfer transition-transform hover:scale-[1.03]"
+                disabled={status === "loading"}
+                className="bg-teal text-black px-8 py-3.5 text-xs tracking-[0.25em] clip-chamfer transition-transform hover:scale-[1.03] disabled:opacity-60 disabled:hover:scale-100"
               >
-                RÉSERVER
+                {status === "loading" ? "ENVOI..." : "RÉSERVER"}
               </button>
             </form>
+          )}
+          {status === "error" && (
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-4 text-xs tracking-[0.15em] text-red-400"
+            >
+              UNE ERREUR EST SURVENUE — VEUILLEZ RÉESSAYER.
+            </motion.p>
           )}
         </Reveal>
       </div>
