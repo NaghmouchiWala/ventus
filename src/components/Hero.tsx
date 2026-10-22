@@ -23,7 +23,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="noise relative min-h-screen flex flex-col items-center justify-center overflow-hidden border-b border-white/10"
+      className="noise relative min-h-screen flex flex-col items-center justify-center overflow-hidden border-b border-line"
     >
       {/* concentric airflow rings */}
       <div
@@ -51,7 +51,7 @@ export function Hero() {
       {/* radial glow */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,rgba(255,255,255,0.08),transparent_70%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,var(--overlay),transparent_70%)]"
       />
 
       {/* giant fan blade behind text */}
@@ -82,37 +82,26 @@ export function Hero() {
 
         <motion.div
           initial={{ opacity: 0, y: 8 }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            borderColor: [
-              "rgba(255,255,255,0.15)",
-              "rgba(45,212,191,0.4)",
-              "rgba(255,255,255,0.15)",
-            ],
-          }}
-          transition={{
-            opacity: { delay: 0.5, duration: 0.6 },
-            y: { delay: 0.5, duration: 0.6 },
-            borderColor: {
-              delay: 1.2,
-              duration: 3.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            },
-          }}
-          className="mb-10 inline-flex items-center gap-2.5 border px-4 py-1.5 clip-chamfer-sm"
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="relative mb-10 inline-flex items-center gap-2.5 border border-line px-4 py-1.5 clip-chamfer-sm"
         >
+          <motion.div
+            aria-hidden
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ delay: 1.2, duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+            className="pointer-events-none absolute inset-0 border border-teal/40 clip-chamfer-sm"
+          />
           <motion.span
             animate={{ opacity: [1, 0.5, 1] }}
             transition={{ delay: 1.2, duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
             className="flex h-2.5 w-4 overflow-hidden rounded-[1px]"
           >
             <span className="h-full w-1/3 bg-[#0055A4]" />
-            <span className="h-full w-1/3 bg-white" />
+            <span className="h-full w-1/3 bg-[#f5f5f5]" />
             <span className="h-full w-1/3 bg-[#EF4135]" />
           </motion.span>
-          <span className="text-[10px] tracking-[0.25em] text-white/60">
+          <span className="relative text-[10px] tracking-[0.25em] text-foreground/60">
             DESIGNED IN FRANCE
           </span>
         </motion.div>
@@ -136,7 +125,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.7 }}
-          className="mt-8 max-w-xl text-balance text-base sm:text-lg text-white/60 font-light"
+          className="mt-8 max-w-xl text-balance text-base sm:text-lg text-foreground/60 font-light"
         >
           Ventilateurs sur pied, de table, muraux, plafonniers et sans pales —
           une même exigence de silence, de puissance et de design.
@@ -150,13 +139,13 @@ export function Hero() {
         >
           <a
             href="#collection"
-            className="inline-flex items-center justify-center bg-teal text-black px-8 py-3.5 text-xs tracking-[0.25em] clip-chamfer transition-transform hover:scale-[1.03]"
+            className="inline-flex items-center justify-center bg-teal text-invert px-8 py-3.5 text-xs tracking-[0.25em] clip-chamfer transition-transform hover:scale-[1.03]"
           >
             DÉCOUVRIR LA COLLECTION
           </a>
           <a
             href="#technology"
-            className="inline-flex items-center justify-center border border-white/25 px-8 py-3.5 text-xs tracking-[0.25em] text-white/80 clip-chamfer transition-colors hover:border-white hover:text-white"
+            className="inline-flex items-center justify-center border border-line-strong px-8 py-3.5 text-xs tracking-[0.25em] text-foreground/80 clip-chamfer transition-colors hover:border-foreground hover:text-foreground"
           >
             LA TECHNOLOGIE
           </a>
@@ -167,13 +156,13 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-10 flex flex-col items-center gap-3 text-white/40"
+        className="absolute bottom-10 flex flex-col items-center gap-3 text-foreground/40"
       >
         <span className="text-[10px] tracking-[0.3em]">SCROLL</span>
         <motion.span
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          className="block h-8 w-px bg-gradient-to-b from-white/60 to-transparent"
+          className="block h-8 w-px bg-gradient-to-b from-foreground/60 to-transparent"
         />
       </motion.div>
     </section>

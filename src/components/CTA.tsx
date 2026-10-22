@@ -32,7 +32,7 @@ export function CTA() {
   return (
     <section
       id="contact"
-      className="relative border-b border-white/10 py-28 sm:py-40 overflow-hidden"
+      className="relative border-b border-line py-28 sm:py-40 overflow-hidden"
     >
       <WindLines className="absolute inset-0 overflow-hidden opacity-60" />
       <div
@@ -48,7 +48,7 @@ export function CTA() {
           <h2 className="font-display text-3xl sm:text-5xl font-semibold tracking-wide text-balance">
             Soyez les premiers à sentir l&rsquo;air changer.
           </h2>
-          <p className="mt-6 text-white/50 font-light">
+          <p className="mt-6 text-foreground/50 font-light">
             Réservez votre VENTUS et recevez un tarif de lancement, ainsi que
             les actualités de chaque nouveau modèle.
           </p>
@@ -75,12 +75,12 @@ export function CTA() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="votre@email.com"
                 disabled={status === "loading"}
-                className="flex-1 bg-transparent border border-white/25 px-5 py-3.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-teal disabled:opacity-50"
+                className="flex-1 bg-transparent border border-line-strong px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/30 outline-none transition-colors focus:border-teal disabled:opacity-50"
               />
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="bg-teal text-black px-8 py-3.5 text-xs tracking-[0.25em] clip-chamfer transition-transform hover:scale-[1.03] disabled:opacity-60 disabled:hover:scale-100"
+                className="bg-teal text-invert px-8 py-3.5 text-xs tracking-[0.25em] clip-chamfer transition-transform hover:scale-[1.03] disabled:opacity-60 disabled:hover:scale-100"
               >
                 {status === "loading" ? "ENVOI..." : "RÉSERVER"}
               </button>

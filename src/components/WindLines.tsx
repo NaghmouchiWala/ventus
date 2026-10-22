@@ -16,7 +16,7 @@ export function WindLines({ className }: { className?: string }) {
       {LINES.map((line, i) => (
         <motion.div
           key={i}
-          className="absolute left-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
+          className="absolute left-0 h-px bg-gradient-to-r from-transparent via-foreground/40 to-transparent"
           style={{ top: line.top, width: line.width }}
           initial={{ x: "-100%", opacity: 0 }}
           animate={{ x: "160vw", opacity: [0, 1, 1, 0] }}

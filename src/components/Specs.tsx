@@ -12,7 +12,7 @@ const STATS = [
 
 export function Specs() {
   return (
-    <section id="specs" className="relative border-b border-white/10 py-28 sm:py-36">
+    <section id="specs" className="relative border-b border-line py-28 sm:py-36">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal className="max-w-2xl">
           <p className="text-xs tracking-[0.4em] text-teal mb-4">
@@ -32,7 +32,7 @@ export function Specs() {
                 <p className="font-display text-4xl sm:text-5xl font-semibold tracking-wide">
                   <Counter to={stat.value} suffix={stat.suffix} />
                 </p>
-                <p className="mt-3 text-xs sm:text-sm text-white/50 font-light leading-snug">
+                <p className="mt-3 text-xs sm:text-sm text-foreground/50 font-light leading-snug">
                   {stat.label}
                 </p>
               </div>

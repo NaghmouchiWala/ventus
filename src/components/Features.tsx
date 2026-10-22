@@ -34,7 +34,7 @@ export function Features() {
   return (
     <section
       id="technology"
-      className="relative border-b border-white/10 py-28 sm:py-36"
+      className="relative border-b border-line py-28 sm:py-36"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal className="max-w-2xl">
@@ -48,23 +48,23 @@ export function Features() {
           </h2>
         </Reveal>
 
-        <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
+        <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line">
           {FEATURES.map((feature, i) => (
             <Reveal key={feature.index} delay={i * 0.12}>
-              <div className="group h-full bg-background p-8 transition-colors duration-500 hover:bg-white/[0.04]">
+              <div className="group h-full bg-background p-8 transition-colors duration-500 hover:bg-overlay-weak">
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-sm text-white/30 tracking-widest">
+                  <span className="font-display text-sm text-foreground/30 tracking-widest">
                     {feature.index}
                   </span>
                   <PillarIcon
                     name={feature.title}
-                    className="h-6 w-6 text-white/30 transition-colors duration-500 group-hover:text-teal"
+                    className="h-6 w-6 text-foreground/30 transition-colors duration-500 group-hover:text-teal"
                   />
                 </div>
                 <h3 className="mt-6 font-display text-lg tracking-wide">
                   {feature.title}
                 </h3>
-                <p className="mt-4 text-sm leading-relaxed text-white/50 font-light">
+                <p className="mt-4 text-sm leading-relaxed text-foreground/50 font-light">
                   {feature.description}
                 </p>
                 <div className="mt-8 h-px w-0 bg-teal transition-all duration-500 group-hover:w-full" />

@@ -15,14 +15,14 @@ export function FanBlade({
   return (
     <motion.svg
       viewBox="0 0 400 400"
-      className={cn("w-full h-full", className)}
+      className={cn("w-full h-full text-foreground", className)}
       animate={{ rotate: reverse ? -360 : 360 }}
       transition={{ duration, repeat: Infinity, ease: "linear" }}
     >
       <defs>
         <linearGradient id="bladeFade" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
-          <stop offset="100%" stopColor="#ffffff" stopOpacity="0.15" />
+          <stop offset="0%" stopColor="currentColor" stopOpacity="0.95" />
+          <stop offset="100%" stopColor="currentColor" stopOpacity="0.15" />
         </linearGradient>
       </defs>
       {Array.from({ length: 5 }).map((_, i) => (
@@ -33,8 +33,8 @@ export function FanBlade({
           />
         </g>
       ))}
-      <circle cx="200" cy="200" r="22" fill="#050505" stroke="#ffffff" strokeWidth="2" />
-      <circle cx="200" cy="200" r="6" fill="#ffffff" />
+      <circle cx="200" cy="200" r="22" fill="var(--background)" stroke="currentColor" strokeWidth="2" />
+      <circle cx="200" cy="200" r="6" fill="currentColor" />
     </motion.svg>
   );
 }

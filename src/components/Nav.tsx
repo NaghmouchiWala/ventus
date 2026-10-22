@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 
 const LINKS = [
   { label: "Technologie", href: "#technology" },
@@ -37,7 +38,7 @@ export function Nav() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
           scrolled || open
-            ? "bg-[#050505]/80 backdrop-blur-md border-b border-white/10"
+            ? "bg-background/80 backdrop-blur-md border-b border-line"
             : "bg-transparent border-b border-transparent"
         }`}
       >
@@ -46,12 +47,12 @@ export function Nav() {
             <Logo className="text-lg sm:text-xl" />
           </a>
 
-          <ul className="hidden md:flex items-center gap-10 text-sm tracking-[0.15em] text-white/70">
+          <ul className="hidden md:flex items-center gap-10 text-sm tracking-[0.15em] text-foreground/70">
             {LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="relative py-2 transition-colors hover:text-white group"
+                  className="relative py-2 transition-colors hover:text-foreground group"
                 >
                   {link.label.toUpperCase()}
                   <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-teal transition-all duration-300 group-hover:w-full" />
@@ -60,29 +61,35 @@ export function Nav() {
             ))}
           </ul>
 
-          <a
-            href="#contact"
-            className="hidden sm:inline-flex items-center border border-teal/40 px-5 py-2.5 text-xs tracking-[0.2em] text-teal clip-chamfer-sm transition-colors hover:bg-teal hover:text-black"
-          >
-            PRÉ-COMMANDER
-          </a>
+          <div className="hidden sm:flex items-center gap-4">
+            <ThemeToggle />
+            <a
+              href="#contact"
+              className="inline-flex items-center border border-teal/40 px-5 py-2.5 text-xs tracking-[0.2em] text-teal clip-chamfer-sm transition-colors hover:bg-teal hover:text-invert"
+            >
+              PRÉ-COMMANDER
+            </a>
+          </div>
 
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            className="md:hidden relative z-10 flex h-10 w-10 flex-col items-center justify-center gap-[6px]"
-          >
-            <motion.span
-              animate={open ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
-              className="block h-px w-6 bg-white"
-            />
-            <motion.span
-              animate={open ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
-              className="block h-px w-6 bg-white"
-            />
-          </button>
+          <div className="flex items-center gap-3 sm:hidden">
+            <ThemeToggle />
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              className="relative z-10 flex h-10 w-10 flex-col items-center justify-center gap-[6px]"
+            >
+              <motion.span
+                animate={open ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
+                className="block h-px w-6 bg-foreground"
+              />
+              <motion.span
+                animate={open ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
+                className="block h-px w-6 bg-foreground"
+              />
+            </button>
+          </div>
         </nav>
       </motion.header>
 
@@ -93,7 +100,7 @@ export function Nav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-40 bg-[#050505] md:hidden"
+            className="fixed inset-0 z-40 bg-background md:hidden"
           >
             <nav className="flex h-full flex-col items-center justify-center gap-8 px-6">
               {LINKS.map((link, i) => (
@@ -104,7 +111,7 @@ export function Nav() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.07, duration: 0.5 }}
-                  className="font-display text-2xl tracking-[0.15em] text-white/80 transition-colors hover:text-white"
+                  className="font-display text-2xl tracking-[0.15em] text-foreground/80 transition-colors hover:text-foreground"
                 >
                   {link.label.toUpperCase()}
                 </motion.a>

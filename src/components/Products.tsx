@@ -24,7 +24,7 @@ export function Products() {
   );
 
   return (
-    <section id="collection" className="relative border-b border-white/10 py-28 sm:py-36">
+    <section id="collection" className="relative border-b border-line py-28 sm:py-36">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal className="max-w-2xl">
           <p className="text-xs tracking-[0.4em] text-teal mb-4">LA COLLECTION</p>
@@ -33,7 +33,7 @@ export function Products() {
             <br />
             Une seule idée de l&rsquo;air.
           </h2>
-          <p className="mt-6 max-w-xl text-white/50 font-light">
+          <p className="mt-6 max-w-xl text-foreground/50 font-light">
             Du ventilateur de bureau au plafonnier design, chaque modèle VENTUS
             partage la même ingénierie silencieuse — pensée pour chaque pièce
             de votre quotidien.
@@ -49,8 +49,8 @@ export function Products() {
                 onClick={() => setActive(cat)}
                 className={`relative border px-5 py-2.5 text-xs tracking-[0.15em] transition-colors duration-300 ${
                   active === cat
-                    ? "border-transparent text-black"
-                    : "border-white/15 text-white/60 hover:border-white/40 hover:text-white"
+                    ? "border-transparent text-invert"
+                    : "border-line-strong text-foreground/60 hover:border-foreground/40 hover:text-foreground"
                 }`}
               >
                 {active === cat && (

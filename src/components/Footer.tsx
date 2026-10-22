@@ -7,7 +7,7 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
           <Logo className="text-xl" withTagline />
 
-          <div className="flex flex-wrap gap-x-10 gap-y-3 text-xs tracking-[0.2em] text-white/40">
+          <div className="flex flex-wrap gap-x-10 gap-y-3 text-xs tracking-[0.2em] text-foreground/40">
             <a href="#technology" className="hover:text-teal transition-colors">
               TECHNOLOGIE
             </a>
@@ -23,7 +23,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] tracking-[0.15em] text-white/30">
+        <div className="mt-12 pt-8 border-t border-line flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] tracking-[0.15em] text-foreground/30">
           <p>© {new Date().getFullYear()} VENTUS. TOUS DROITS RÉSERVÉS.</p>
           <p>L&rsquo;AIR D&rsquo;UN MEILLEUR QUOTIDIEN.</p>
         </div>
