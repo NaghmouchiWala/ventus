@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Product } from "@/lib/products";
-import { ProductIcon } from "./ProductIcon";
 
 export function ProductCard({ product, index }: { product: Product; index: number }) {
   const [open, setOpen] = useState(false);
@@ -20,17 +20,25 @@ export function ProductCard({ product, index }: { product: Product; index: numbe
         {product.dimension}
       </div>
 
-      <div className="relative flex h-56 items-center justify-center overflow-hidden border-b border-white/10">
+      <div className="relative flex h-64 items-center justify-center overflow-hidden border-b border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent">
         <div
           aria-hidden
-          className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(45,212,191,0.08),transparent_70%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(45,212,191,0.12),transparent_70%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100"
         />
         <motion.div
-          animate={{ rotate: [0, 4, 0, -4, 0] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="h-36 w-36 text-white/70 transition-colors duration-500 group-hover:text-teal"
+          initial={{ opacity: 0, scale: 0.92 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="relative h-full w-full transition-transform duration-500 group-hover:scale-[1.04]"
         >
-          <ProductIcon category={product.category} className="h-full w-full" />
+          <Image
+            src={product.image.src}
+            alt={`${product.model} — ${product.name}`}
+            fill
+            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
+            className="object-contain p-6 drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
+          />
         </motion.div>
       </div>
 

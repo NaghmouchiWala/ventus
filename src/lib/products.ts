@@ -10,6 +10,7 @@ export type Product = {
   specs: ProductSpec[];
   colors: string[];
   dimension: string;
+  image: { src: string; width: number; height: number };
 };
 
 export const PRODUCTS: Product[] = [
@@ -40,6 +41,7 @@ export const PRODUCTS: Product[] = [
     ],
     colors: ["#0a0a0a", "#f5f5f5", "#2dd4bf"],
     dimension: "Ø 40 cm",
+    image: { src: "/products/s1.webp", width: 843, height: 1264 },
   },
   {
     id: "t1",
@@ -68,6 +70,7 @@ export const PRODUCTS: Product[] = [
     ],
     colors: ["#0a0a0a", "#f5f5f5", "#2dd4bf"],
     dimension: "Ø 30 cm",
+    image: { src: "/products/t1.webp", width: 1024, height: 1024 },
   },
   {
     id: "w1",
@@ -97,6 +100,7 @@ export const PRODUCTS: Product[] = [
     ],
     colors: ["#0a0a0a", "#f5f5f5", "#2dd4bf"],
     dimension: "Ø 40 cm",
+    image: { src: "/products/w1.webp", width: 630, height: 768 },
   },
   {
     id: "c1",
@@ -125,6 +129,7 @@ export const PRODUCTS: Product[] = [
     ],
     colors: ["#0a0a0a", "#f5f5f5", "#2dd4bf", "#8b5e3c"],
     dimension: "Ø 132 cm",
+    image: { src: "/products/c1.webp", width: 1024, height: 1024 },
   },
   {
     id: "c2",
@@ -153,6 +158,7 @@ export const PRODUCTS: Product[] = [
     ],
     colors: ["#0a0a0a", "#f5f5f5", "#2dd4bf", "#8b5e3c"],
     dimension: "Ø 132 cm",
+    image: { src: "/products/c2.webp", width: 1024, height: 1024 },
   },
   {
     id: "b1",
@@ -181,6 +187,7 @@ export const PRODUCTS: Product[] = [
     ],
     colors: ["#0a0a0a", "#f5f5f5", "#2dd4bf"],
     dimension: "Ø 23 cm",
+    image: { src: "/products/b1.webp", width: 1408, height: 768 },
   },
 ];
 
